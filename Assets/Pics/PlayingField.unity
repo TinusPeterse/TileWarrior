@@ -2538,132 +2538,59 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Generate: 1
-  Levels:
-  - Tiles:
-    - sprite: {fileID: 21300000, guid: 1fc96fc5e29ee0543a1aa360c23a9a30, type: 3}
-      MonsterType: 1
-      DamHeal: 0
-    - sprite: {fileID: 21300000, guid: 719e94fe0c255fd48a6067bce65230a7, type: 3}
-      MonsterType: 0
-      DamHeal: 1
-    - sprite: {fileID: 21300000, guid: 6ea60bb0a9a12b24ba31ad35ef823051, type: 3}
-      MonsterType: 3
-      DamHeal: 3
-    - sprite: {fileID: 21300000, guid: 5167c4c21b8fe9a4e8735222ed9911f0, type: 3}
-      MonsterType: 1
-      DamHeal: 3
-  - Tiles:
-    - sprite: {fileID: 21300000, guid: 1fc96fc5e29ee0543a1aa360c23a9a30, type: 3}
-      MonsterType: 1
-      DamHeal: 0
-    - sprite: {fileID: 21300000, guid: ecdabfb375c80554d970758af9ca0224, type: 3}
-      MonsterType: 0
-      DamHeal: 2
-    - sprite: {fileID: 21300000, guid: 6ea60bb0a9a12b24ba31ad35ef823051, type: 3}
-      MonsterType: 3
-      DamHeal: 3
-    - sprite: {fileID: 21300000, guid: a081394323046c34a96e1d233ce79334, type: 3}
-      MonsterType: 1
-      DamHeal: 5
-  - Tiles:
-    - sprite: {fileID: 21300000, guid: 1fc96fc5e29ee0543a1aa360c23a9a30, type: 3}
-      MonsterType: 1
-      DamHeal: 0
-    - sprite: {fileID: 21300000, guid: ecdabfb375c80554d970758af9ca0224, type: 3}
-      MonsterType: 0
-      DamHeal: 2
-    - sprite: {fileID: 21300000, guid: 6ea60bb0a9a12b24ba31ad35ef823051, type: 3}
-      MonsterType: 3
-      DamHeal: 4
-    - sprite: {fileID: 21300000, guid: a081394323046c34a96e1d233ce79334, type: 3}
-      MonsterType: 1
-      DamHeal: 5
-    - sprite: {fileID: 21300000, guid: 5167c4c21b8fe9a4e8735222ed9911f0, type: 3}
-      MonsterType: 1
-      DamHeal: 2
-  - Tiles:
-    - sprite: {fileID: 21300000, guid: 1fc96fc5e29ee0543a1aa360c23a9a30, type: 3}
-      MonsterType: 1
-      DamHeal: 0
-    - sprite: {fileID: 21300000, guid: ecdabfb375c80554d970758af9ca0224, type: 3}
-      MonsterType: 0
-      DamHeal: 3
-    - sprite: {fileID: 21300000, guid: 6ea60bb0a9a12b24ba31ad35ef823051, type: 3}
-      MonsterType: 3
-      DamHeal: 4
-    - sprite: {fileID: 21300000, guid: 00f334980d3ba104c9073129ed36330b, type: 3}
-      MonsterType: 1
-      DamHeal: 12
-    - sprite: {fileID: 21300000, guid: 719e94fe0c255fd48a6067bce65230a7, type: 3}
-      MonsterType: 0
-      DamHeal: 1
-  - Tiles:
-    - sprite: {fileID: 21300000, guid: 1fc96fc5e29ee0543a1aa360c23a9a30, type: 3}
-      MonsterType: 1
-      DamHeal: 0
-    - sprite: {fileID: 21300000, guid: 6ea60bb0a9a12b24ba31ad35ef823051, type: 3}
-      MonsterType: 3
-      DamHeal: 3
-    - sprite: {fileID: 21300000, guid: 6ea60bb0a9a12b24ba31ad35ef823051, type: 3}
-      MonsterType: 3
-      DamHeal: 4
-    - sprite: {fileID: 21300000, guid: 00f334980d3ba104c9073129ed36330b, type: 3}
-      MonsterType: 1
-      DamHeal: 10
-    - sprite: {fileID: 21300000, guid: a081394323046c34a96e1d233ce79334, type: 3}
-      MonsterType: 1
-      DamHeal: 5
-  - Tiles:
-    - sprite: {fileID: 21300000, guid: 1fc96fc5e29ee0543a1aa360c23a9a30, type: 3}
-      MonsterType: 1
-      DamHeal: 0
-    - sprite: {fileID: 21300000, guid: 5167c4c21b8fe9a4e8735222ed9911f0, type: 3}
-      MonsterType: 1
-      DamHeal: 3
-    - sprite: {fileID: 21300000, guid: a081394323046c34a96e1d233ce79334, type: 3}
-      MonsterType: 1
-      DamHeal: 5
-    - sprite: {fileID: 21300000, guid: 00f334980d3ba104c9073129ed36330b, type: 3}
-      MonsterType: 1
-      DamHeal: 10
-    - sprite: {fileID: 21300000, guid: 6ea60bb0a9a12b24ba31ad35ef823051, type: 3}
-      MonsterType: 3
-      DamHeal: 4
-    - sprite: {fileID: 21300000, guid: 9bfe6986ca3817e4a8d6dbe2c679a8c5, type: 3}
-      MonsterType: 0
-      DamHeal: 5
+  Levels: []
   Current:
   - sprite: {fileID: 0}
     MonsterType: 0
     DamHeal: 0
+    RequiredLevel: 0
+    MaxLevel: 0
   - sprite: {fileID: 0}
     MonsterType: 0
     DamHeal: 0
+    RequiredLevel: 0
+    MaxLevel: 0
   - sprite: {fileID: 0}
     MonsterType: 0
     DamHeal: 0
+    RequiredLevel: 0
+    MaxLevel: 0
   - sprite: {fileID: 0}
     MonsterType: 0
     DamHeal: 0
+    RequiredLevel: 0
+    MaxLevel: 0
   - sprite: {fileID: 0}
     MonsterType: 0
     DamHeal: 0
+    RequiredLevel: 0
+    MaxLevel: 0
   - sprite: {fileID: 0}
     MonsterType: 0
     DamHeal: 0
+    RequiredLevel: 0
+    MaxLevel: 0
   - sprite: {fileID: 0}
     MonsterType: 0
     DamHeal: 0
+    RequiredLevel: 0
+    MaxLevel: 0
   - sprite: {fileID: 0}
     MonsterType: 0
     DamHeal: 0
+    RequiredLevel: 0
+    MaxLevel: 0
   - sprite: {fileID: 0}
     MonsterType: 0
     DamHeal: 0
+    RequiredLevel: 0
+    MaxLevel: 0
   PlayerTile:
     sprite: {fileID: 21300000, guid: 1fc96fc5e29ee0543a1aa360c23a9a30, type: 3}
     MonsterType: 1
     DamHeal: 0
+    RequiredLevel: 0
+    MaxLevel: 0
   GameTile:
   - {fileID: 1041265730139935897}
   - {fileID: 3423143939847785764}
@@ -2674,50 +2601,86 @@ MonoBehaviour:
   - {fileID: 707673611282750182}
   - {fileID: 667723536589788357}
   - {fileID: 6800106161440220075}
-  PlayerHp: 3
-  PlayerStepCounter: 0
-  PlayerLevel: 0
   Monsters:
   - sprite: {fileID: 21300000, guid: 03316b71c34f38845b15fcd1f81f0128, type: 3}
     MonsterType: 1
     DamHeal: 2
-  - sprite: {fileID: 21300000, guid: 5167c4c21b8fe9a4e8735222ed9911f0, type: 3}
+    RequiredLevel: 0
+    MaxLevel: 2
+  - sprite: {fileID: 21300000, guid: 09ddcab6c1cbfde4493df44ef0e135cf, type: 3}
+    MonsterType: 1
+    DamHeal: 3
+    RequiredLevel: 0
+    MaxLevel: 4
+  - sprite: {fileID: 21300000, guid: 09ddcab6c1cbfde4493df44ef0e135cf, type: 3}
     MonsterType: 1
     DamHeal: 4
-  - sprite: {fileID: 21300000, guid: 5167c4c21b8fe9a4e8735222ed9911f0, type: 3}
-    MonsterType: 1
-    DamHeal: 5
+    RequiredLevel: 1
+    MaxLevel: 4
   - sprite: {fileID: 21300000, guid: a081394323046c34a96e1d233ce79334, type: 3}
     MonsterType: 1
     DamHeal: 6
+    RequiredLevel: 1
+    MaxLevel: 6
   - sprite: {fileID: 21300000, guid: a081394323046c34a96e1d233ce79334, type: 3}
     MonsterType: 1
-    DamHeal: 8
+    DamHeal: 7
+    RequiredLevel: 2
+    MaxLevel: 6
+  - sprite: {fileID: 21300000, guid: a081394323046c34a96e1d233ce79334, type: 3}
+    MonsterType: 1
+    DamHeal: 10
+    RequiredLevel: 4
+    MaxLevel: 8
   - sprite: {fileID: 21300000, guid: 00f334980d3ba104c9073129ed36330b, type: 3}
     MonsterType: 1
     DamHeal: 10
+    RequiredLevel: 3
+    MaxLevel: 10
   - sprite: {fileID: 21300000, guid: 00f334980d3ba104c9073129ed36330b, type: 3}
     MonsterType: 1
     DamHeal: 12
-  - sprite: {fileID: 21300000, guid: 6ea60bb0a9a12b24ba31ad35ef823051, type: 3}
-    MonsterType: 3
-    DamHeal: 2
+    RequiredLevel: 4
+    MaxLevel: 10
   - sprite: {fileID: 21300000, guid: 6ea60bb0a9a12b24ba31ad35ef823051, type: 3}
     MonsterType: 3
     DamHeal: 3
+    RequiredLevel: 0
+    MaxLevel: 4
   - sprite: {fileID: 21300000, guid: 6ea60bb0a9a12b24ba31ad35ef823051, type: 3}
     MonsterType: 3
-    DamHeal: 4
+    DamHeal: 5
+    RequiredLevel: 1
+    MaxLevel: 10
+  - sprite: {fileID: 21300000, guid: 6ea60bb0a9a12b24ba31ad35ef823051, type: 3}
+    MonsterType: 3
+    DamHeal: 7
+    RequiredLevel: 0
+    MaxLevel: 10
   - sprite: {fileID: 21300000, guid: 719e94fe0c255fd48a6067bce65230a7, type: 3}
     MonsterType: 0
     DamHeal: 1
+    RequiredLevel: 0
+    MaxLevel: 10
   - sprite: {fileID: 21300000, guid: ecdabfb375c80554d970758af9ca0224, type: 3}
     MonsterType: 0
     DamHeal: 2
+    RequiredLevel: 0
+    MaxLevel: 10
   - sprite: {fileID: 21300000, guid: 9bfe6986ca3817e4a8d6dbe2c679a8c5, type: 3}
     MonsterType: 0
     DamHeal: 3
+    RequiredLevel: 2
+    MaxLevel: 10
+  - sprite: {fileID: 21300000, guid: 8ffdc95eb69edbd41895ec2f38fc3dd8, type: 3}
+    MonsterType: 0
+    DamHeal: 5
+    RequiredLevel: 6
+    MaxLevel: 10
   LevelMonsters: []
+  PlayerHp: 3
+  PlayerStepCounter: 0
+  PlayerLevel: 0
   WarriorRageSprite: {fileID: 21300000, guid: 723d0b3253a2c3b4a8ddc7bed0d432ba, type: 3}
 --- !u!1 &5167414559632495485
 GameObject:

@@ -15,6 +15,9 @@ public class ItemLayOut : MonoBehaviour
     public Tile PlayerTile; protected int PlayerIndex;
     public GameObject[] GameTile = new GameObject [9];
     protected GameObject PlayerHpObject, PlayerArmorObject, PlayerStepObject, SpecialCounter;
+    public Tile[] Monsters;
+    public List<Tile> LevelMonsters;
+    private Tile CurrentMonster;
     protected int PlayerArmor;
     public int PlayerHp;
     public int PlayerStepCounter = 0;
@@ -53,9 +56,7 @@ public class ItemLayOut : MonoBehaviour
         PlayerStepObject.GetComponentInChildren<Text>().text = PlayerStepCounter.ToString();
     }
     #region Yeet
-    public Tile[] Monsters;
-    public List<Tile> LevelMonsters;
-    private Tile CurrentMonster;
+    
     int Difficulty = 0;
     public void GenerateNext()
     {
@@ -64,15 +65,20 @@ public class ItemLayOut : MonoBehaviour
         LevelMonsters = new List<Tile>();
         LevelMonsters.Add(PlayerTile);
         Difficulty = 0;
-        while ((Difficulty < PlayerLevel + 1 && LevelMonsters.Count < 3 + PlayerLevel) || Difficulty > PlayerLevel * 1.5)
+        while ((Difficulty < PlayerLevel || LevelMonsters.Count < 4 + PlayerLevel/5) || Difficulty > (PlayerLevel) * 1.2 )
         {
             CurrentMonster = Monsters[Random.Range(0, Monsters.Length - 1)];
-            LevelMonsters.Add(CurrentMonster);
-            Difficulty += CalculateDifficulty(CurrentMonster);
-            if (LevelMonsters.Count > 5 + PlayerLevel)
+            if (CurrentMonster. RequiredLevel >= PlayerLevel){ continue; }
+            else if (CurrentMonster.MaxLevel < PlayerLevel) { continue; }
+            else
             {
-                Difficulty -= CalculateDifficulty(LevelMonsters[1]);
-                LevelMonsters.RemoveAt(1);
+                LevelMonsters.Add(CurrentMonster);
+                Difficulty += CalculateDifficulty(CurrentMonster);
+                if (LevelMonsters.Count > 6 + PlayerLevel/5)
+                {
+                    Difficulty -= CalculateDifficulty(LevelMonsters[1]);
+                    LevelMonsters.RemoveAt(1);
+                }
             }
         }
         AllTiles = LevelMonsters.ToArray();
@@ -83,7 +89,7 @@ public class ItemLayOut : MonoBehaviour
         int Difficulty = 0;
         if (YEET.MonsterType == Tile.TypeMonster.Potion)
         {
-            Mult = -8;
+            Mult = -5;
         }
         else if (YEET.MonsterType == Tile.TypeMonster.Armor)
         {
@@ -93,7 +99,7 @@ public class ItemLayOut : MonoBehaviour
         {
             Mult = 2;
         }
-        Difficulty = Mult * YEET.DamHeal;
+        Difficulty = (int)(Mult * YEET.DamHeal);
         return Difficulty;
 
     }
@@ -115,7 +121,8 @@ public class ItemLayOut : MonoBehaviour
         HandleInput();
         if (PlayerStepCounter >= 50 * (PlayerLevel + 1))
         {
-            if (Generate) { GenerateNext(); } else
+            if (Generate) { GenerateNext(); }
+            else
             {
                 PlayerLevel++;
                 Mathf.Clamp(PlayerLevel, 0, Levels.Length);
@@ -269,6 +276,8 @@ public class Tile
     public enum TypeMonster { Potion, Monster, Weapon, Armor, Menu}
     public TypeMonster MonsterType;
     public int DamHeal;
+    public int RequiredLevel;
+    public int MaxLevel;
 }
 [System.Serializable]
 public class Level
