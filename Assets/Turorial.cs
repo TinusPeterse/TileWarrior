@@ -7,9 +7,10 @@ using TMPro;
 
 public class Turorial : Warrior
 {
-    int TimesRandom = 0;
+    protected int TimesRandom = 0;
     int LevelsDone = 0;
     private GameObject RestartButton;
+
     public void Restart () 
     {
         if (LevelsDone == 5)
@@ -29,13 +30,13 @@ public class Turorial : Warrior
         PlayerHp = 3;
         PlayerArmor = 0;
         PlayerStepCounter = 0;
+        if (PlayerHpObject == null) { return; }
         PlayerHpObject.GetComponentInChildren<Text>().text = PlayerHp.ToString();
         PlayerArmorObject.GetComponentInChildren<Text>().text = PlayerArmor.ToString();
         PlayerStepObject.GetComponentInChildren<Text>().text = PlayerStepCounter.ToString();
     }
     public override void Resett()
     {
-
         PlayerPrefs.DeleteKey("PlayerHp");
         PlayerPrefs.DeleteKey("PlayerArmor");
         PlayerPrefs.DeleteKey("PlayerStepCounter");
@@ -163,7 +164,7 @@ public class Turorial : Warrior
                 {
                     if (i == 8) { ForceTile(i, 0); PlayerIndex = i; }
                     else if (i == 5) { ForceTile(i, 5); }
-                    else if (i == 3) { ForceTile(i, 4); }
+                    else if (i == 3) { ForceTile(i, 4); Current[i].DamHeal = 15; GameTile[i].GetComponentInChildren<Text>().text = 15.ToString(); }
                     else if (i == 0 || i == 1 || i == 2 || i == 4 || i == 6 || i == 7) { ForceTile(i, 3); }
                     else { ForceTile(i, 2); }
                 }

@@ -15,9 +15,7 @@ public class SceneLoader : MonoBehaviour
 
     public void ButtonPress()
     {
-        Debug.Log("YEet");
         ButtonPressed = true;
-       
     }
 
     // Updates once per frame

@@ -7,11 +7,12 @@ using TMPro;
 
 public class ItemLayOut : MonoBehaviour
 {
+    public bool Generate;
     private GameObject PlayerHintObject;
-    public Level[] Levels;
     protected Tile[] AllTiles;
+    public Level[] Levels;
     public Tile[] Current = new Tile[9];
-    protected Tile PlayerTile; protected int PlayerIndex;
+    public Tile PlayerTile; protected int PlayerIndex;
     public GameObject[] GameTile = new GameObject [9];
     protected GameObject PlayerHpObject, PlayerArmorObject, PlayerStepObject, SpecialCounter;
     protected int PlayerArmor;
@@ -23,7 +24,7 @@ public class ItemLayOut : MonoBehaviour
     {
         Screen.orientation = ScreenOrientation.LandscapeLeft;
     }
-    public void Start()
+    public virtual void Start()
     {
         Resett();
     }
@@ -40,9 +41,10 @@ public class ItemLayOut : MonoBehaviour
         PlayerLevel = PlayerPrefs.GetInt("PlayerLevel", 0);
         PlayerStepCounter = PlayerPrefs.GetInt("PlayerStepCounter", PlayerStepCounter);
         HighScore = PlayerPrefs.GetInt("HighScore", 0);
-        AllTiles = Levels[PlayerLevel].Tiles;
-        PlayerTile = AllTiles[0];
+        if (Generate) { GenerateNext();AllTiles[0] = PlayerTile;}
+        else { AllTiles = Levels[PlayerLevel].Tiles; }
         RandomField();
+        
         PlayerHpObject = GameObject.FindGameObjectWithTag("PlayerHp");
         PlayerArmorObject = GameObject.FindGameObjectWithTag("PlayerArmor");
         PlayerStepObject = GameObject.FindGameObjectWithTag("PlayerStep");
@@ -50,11 +52,57 @@ public class ItemLayOut : MonoBehaviour
         PlayerArmorObject.GetComponentInChildren<Text>().text = PlayerArmor.ToString();
         PlayerStepObject.GetComponentInChildren<Text>().text = PlayerStepCounter.ToString();
     }
+    #region Yeet
+    public Tile[] Monsters;
+    public List<Tile> LevelMonsters;
+    private Tile CurrentMonster;
+    int Difficulty = 0;
+    public void GenerateNext()
+    {
+        
+        PlayerLevel++;
+        LevelMonsters = new List<Tile>();
+        LevelMonsters.Add(PlayerTile);
+        Difficulty = 0;
+        while ((Difficulty < PlayerLevel + 1 && LevelMonsters.Count < 3 + PlayerLevel) || Difficulty > PlayerLevel * 1.5)
+        {
+            CurrentMonster = Monsters[Random.Range(0, Monsters.Length - 1)];
+            LevelMonsters.Add(CurrentMonster);
+            Difficulty += CalculateDifficulty(CurrentMonster);
+            if (LevelMonsters.Count > 5 + PlayerLevel)
+            {
+                Difficulty -= CalculateDifficulty(LevelMonsters[1]);
+                LevelMonsters.RemoveAt(1);
+            }
+        }
+        AllTiles = LevelMonsters.ToArray();
+    }
+    public int CalculateDifficulty(Tile YEET)
+    {
+        int Mult = 0;
+        int Difficulty = 0;
+        if (YEET.MonsterType == Tile.TypeMonster.Potion)
+        {
+            Mult = -8;
+        }
+        else if (YEET.MonsterType == Tile.TypeMonster.Armor)
+        {
+            Mult = -1;
+        }
+        else if (YEET.MonsterType == Tile.TypeMonster.Monster)
+        {
+            Mult = 2;
+        }
+        Difficulty = Mult * YEET.DamHeal;
+        return Difficulty;
+
+    }
+    #endregion
     public virtual void RandomField()
     {
         for (int i = 0; i < 9; i++)
         {
-            if (i == 4) { UpdateTile(i, 0); }
+            if (i == 4) { UpdateTile(i, 0); PlayerIndex = i;  }
             else
             {
                 RandomTile(i);
@@ -67,9 +115,12 @@ public class ItemLayOut : MonoBehaviour
         HandleInput();
         if (PlayerStepCounter >= 50 * (PlayerLevel + 1))
         {
-            PlayerLevel++;
-            Mathf.Clamp(PlayerLevel, 0, Levels.Length);
-            AllTiles = Levels[PlayerLevel].Tiles;
+            if (Generate) { GenerateNext(); } else
+            {
+                PlayerLevel++;
+                Mathf.Clamp(PlayerLevel, 0, Levels.Length);
+                AllTiles = Levels[PlayerLevel].Tiles;
+            }
         }
         save();
     }
@@ -192,6 +243,7 @@ public class ItemLayOut : MonoBehaviour
     public void RandomTile(int Index)
     {
         UpdateTile(Index, Random.Range(1, AllTiles.Length));
+        
         if (Current[Index].MonsterType.ToString() == "Monster")
         {
             GameTile[Index].GetComponentInChildren<Text>().color = Color.red;
@@ -211,16 +263,15 @@ public class ItemLayOut : MonoBehaviour
 }
 
 [System.Serializable]
-public class Level
-{
-    public Tile[] Tiles;
-}
-
-[System.Serializable]
 public class Tile
 {
     public Sprite sprite;
-    public enum TypeMonster { Potion, Monster, Weapon, Armor}
+    public enum TypeMonster { Potion, Monster, Weapon, Armor, Menu}
     public TypeMonster MonsterType;
     public int DamHeal;
+}
+[System.Serializable]
+public class Level
+{
+    public Tile[] Tiles;
 }

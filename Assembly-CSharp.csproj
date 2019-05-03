@@ -65,6 +65,7 @@
     <Compile Include="Assets\HighScoreScript.cs" />
     <Compile Include="Assets\ItemLayOut.cs" />
     <Compile Include="Assets\MainMenu.cs" />
+    <Compile Include="Assets\MonsterGen.cs" />
     <Compile Include="Assets\SceneLoader.cs" />
     <Compile Include="Assets\SwypeControls.cs" />
     <Compile Include="Assets\Testscript.cs" />

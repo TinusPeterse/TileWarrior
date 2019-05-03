@@ -81,7 +81,7 @@ fc1d7083498a5b6a81f9be58a38848e1 UnityEngine.UI.dll:UnityEngine.UI.Toggle
 057b8c4daf4b7b24ea5737bbbe2486d2 Assembly-CSharp.dll:.HighScoreScript
 3e402a8de2e3e8efd4a4b53fe4a24c72 Unity.Timeline.dll:UnityEngine.Timeline.SignalAsset
 8f907fac271bf2db8ea2bbbd71ae84ae Unity.Timeline.dll:UnityEngine.Timeline.AnimationTrack
-459a8363aa7ac0fd6245eae05b3605a1 Assembly-CSharp.dll:.SwypeControls
+d426dfe0e5c938e0483e632361924d9d Assembly-CSharp.dll:.SwypeControls
 b87e67033a029e3a5db915ec936a0d5c Unity.TextMeshPro.dll:TMPro.TMP_SubMeshUI
 55026237be79cdfb6e82c3ca42c1a700 Unity.Timeline.dll:UnityEngine.Timeline.AnimationPlayableAsset
 c626b03c1577c34d02998e18793f1de8 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
@@ -95,7 +95,10 @@ f476f90b17bbb676cf2c0967453f05ef Unity.TextMeshPro.dll:TMPro.TMP_Asset
 3e402a8de2e3e8efd4a4b53fe4a24c72 Unity.Analytics.Editor.dll:UnityEditor.Analytics.AnalyticsEventTrackerEditor
 3e402a8de2e3e8efd4a4b53fe4a24c72 Unity.TextMeshPro.dll:TMPro.TMP_SpriteAnimator
 732d325f353f7a5f6ef1a88e97abcfc7 Unity.TextMeshPro.dll:TMPro.TextContainer
-6d334278b358d69e380179564b06eb76 Assembly-CSharp.dll:.MainMenu
+049beffabef88b2dd81139d0c5d7e908 Assembly-CSharp.dll:.SceneLoader
+1a60242187202719605d6f087b2af3db Assembly-CSharp.dll:.MainMenu
+3e402a8de2e3e8efd4a4b53fe4a24c72 Assembly-CSharp.dll:.Testscript
+3e402a8de2e3e8efd4a4b53fe4a24c72 Assembly-CSharp.dll:.TutorialDeath
 4daa388de978d2f6337b082a6c89f8ed Unity.TextMeshPro.dll:TMPro.PackageResourceImporterWindow
 4b0c9f2aa4db5434bb9e2719478830f0 Unity.Timeline.dll:UnityEngine.Timeline.SignalReceiver
 254c19c7bc979b2676d35964d82fecf6 Unity.TextMeshPro.dll:TMPro.TMP_FontAsset
@@ -120,6 +123,3 @@ db2d69491111dcd5c2903e54845dbfaf Assembly-CSharp.dll:.Turorial
 d0c04467fb1e36d452dc6ca9a01bf69d Unity.Timeline.dll:UnityEngine.Timeline.SignalEmitter
 3511e30a80117598d4ebefea248bb698 Assembly-CSharp.dll:.ItemLayOut
 9f09696ba64c2b1f2d1885af8ffcf92e Unity.Timeline.dll:UnityEngine.Timeline.PlayableTrack
-3e402a8de2e3e8efd4a4b53fe4a24c72 Assembly-CSharp.dll:.TutorialDeath
-049beffabef88b2dd81139d0c5d7e908 Assembly-CSharp.dll:.SceneLoader
-3e402a8de2e3e8efd4a4b53fe4a24c72 Assembly-CSharp.dll:.Testscript

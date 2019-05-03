@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SwypeControls : MonoBehaviour
 {
-    public Warrior warrior;
+    public ItemLayOut itemLayOut;
     private Vector2 fingerDown;
     private Vector2 fingerUp;
     public bool detectSwipeOnlyAfterRelease = false;
@@ -94,21 +94,21 @@ public class SwypeControls : MonoBehaviour
     //////////////////////////////////CALLBACK FUNCTIONS/////////////////////////////
     void OnSwipeUp()
     {
-        warrior.Up();
+        itemLayOut.Up();
     }
 
     void OnSwipeDown()
     {
-        warrior.Down();
+        itemLayOut.Down();
     }
 
     void OnSwipeLeft()
     {
-        warrior.Left();
+        itemLayOut.Left();
     }
 
     void OnSwipeRight()
     {
-        warrior.Right();
+        itemLayOut.Right();
     }
 }

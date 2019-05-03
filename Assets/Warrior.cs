@@ -39,7 +39,7 @@ public class Warrior : ItemLayOut
     }
     public override void CheckTile(int index)
     {
-        
+
         if (WarriorRage >= 2)
         {
             Current[PlayerIndex].sprite = WarriorRageSprite;

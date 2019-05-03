@@ -426,7 +426,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &482232633
 GameObject:
@@ -612,82 +612,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &867321388
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 867321391}
-  - component: {fileID: 867321390}
-  - component: {fileID: 867321389}
-  m_Layer: 0
-  m_Name: Canvas
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &867321389
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 867321388}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_GeneratorAsset: {fileID: 0}
-  m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
---- !u!223 &867321390
-Canvas:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 867321388}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 0
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_TargetDisplay: 0
---- !u!224 &867321391
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 867321388}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
 --- !u!1 &1283509289
 GameObject:
   m_ObjectHideFlags: 0
@@ -1111,7 +1035,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7705426264263615410}
-  - component: {fileID: 9167909000411357265}
   - component: {fileID: 5069477764757748260}
   - component: {fileID: 577328357883930525}
   m_Layer: 0
@@ -1134,7 +1057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92345373538e74446a1a188928428b1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  warrior: {fileID: 5069477764757748260}
+  itemLayOut: {fileID: 5069477764757748260}
   detectSwipeOnlyAfterRelease: 1
   SWIPE_THRESHOLD: 20
 --- !u!1 &585572525176825977
@@ -2614,6 +2537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b26f6cbef17c9e14e886a1004962f8ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Generate: 1
   Levels:
   - Tiles:
     - sprite: {fileID: 21300000, guid: 1fc96fc5e29ee0543a1aa360c23a9a30, type: 3}
@@ -2736,6 +2660,10 @@ MonoBehaviour:
   - sprite: {fileID: 0}
     MonsterType: 0
     DamHeal: 0
+  PlayerTile:
+    sprite: {fileID: 21300000, guid: 1fc96fc5e29ee0543a1aa360c23a9a30, type: 3}
+    MonsterType: 1
+    DamHeal: 0
   GameTile:
   - {fileID: 1041265730139935897}
   - {fileID: 3423143939847785764}
@@ -2749,6 +2677,47 @@ MonoBehaviour:
   PlayerHp: 3
   PlayerStepCounter: 0
   PlayerLevel: 0
+  Monsters:
+  - sprite: {fileID: 21300000, guid: 03316b71c34f38845b15fcd1f81f0128, type: 3}
+    MonsterType: 1
+    DamHeal: 2
+  - sprite: {fileID: 21300000, guid: 5167c4c21b8fe9a4e8735222ed9911f0, type: 3}
+    MonsterType: 1
+    DamHeal: 4
+  - sprite: {fileID: 21300000, guid: 5167c4c21b8fe9a4e8735222ed9911f0, type: 3}
+    MonsterType: 1
+    DamHeal: 5
+  - sprite: {fileID: 21300000, guid: a081394323046c34a96e1d233ce79334, type: 3}
+    MonsterType: 1
+    DamHeal: 6
+  - sprite: {fileID: 21300000, guid: a081394323046c34a96e1d233ce79334, type: 3}
+    MonsterType: 1
+    DamHeal: 8
+  - sprite: {fileID: 21300000, guid: 00f334980d3ba104c9073129ed36330b, type: 3}
+    MonsterType: 1
+    DamHeal: 10
+  - sprite: {fileID: 21300000, guid: 00f334980d3ba104c9073129ed36330b, type: 3}
+    MonsterType: 1
+    DamHeal: 12
+  - sprite: {fileID: 21300000, guid: 6ea60bb0a9a12b24ba31ad35ef823051, type: 3}
+    MonsterType: 3
+    DamHeal: 2
+  - sprite: {fileID: 21300000, guid: 6ea60bb0a9a12b24ba31ad35ef823051, type: 3}
+    MonsterType: 3
+    DamHeal: 3
+  - sprite: {fileID: 21300000, guid: 6ea60bb0a9a12b24ba31ad35ef823051, type: 3}
+    MonsterType: 3
+    DamHeal: 4
+  - sprite: {fileID: 21300000, guid: 719e94fe0c255fd48a6067bce65230a7, type: 3}
+    MonsterType: 0
+    DamHeal: 1
+  - sprite: {fileID: 21300000, guid: ecdabfb375c80554d970758af9ca0224, type: 3}
+    MonsterType: 0
+    DamHeal: 2
+  - sprite: {fileID: 21300000, guid: 9bfe6986ca3817e4a8d6dbe2c679a8c5, type: 3}
+    MonsterType: 0
+    DamHeal: 3
+  LevelMonsters: []
   WarriorRageSprite: {fileID: 21300000, guid: 723d0b3253a2c3b4a8ddc7bed0d432ba, type: 3}
 --- !u!1 &5167414559632495485
 GameObject:
@@ -2980,7 +2949,7 @@ Transform:
   - {fileID: 1827952583}
   - {fileID: 1283509290}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!222 &5608515329196691217
 CanvasRenderer:
@@ -4514,119 +4483,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &9167909000411357265
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 577328357883930524}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_GeneratorAsset: {fileID: 0}
-  m_Script: {fileID: 11500000, guid: 0ef76aaf737d85b449b14dab139da82a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Levels:
-  - Tiles:
-    - sprite: {fileID: 21300000, guid: 1fc96fc5e29ee0543a1aa360c23a9a30, type: 3}
-      MonsterType: 1
-      DamHeal: 0
-    - sprite: {fileID: 21300000, guid: 6ea60bb0a9a12b24ba31ad35ef823051, type: 3}
-      MonsterType: 3
-      DamHeal: 3
-    - sprite: {fileID: 21300000, guid: 03316b71c34f38845b15fcd1f81f0128, type: 3}
-      MonsterType: 1
-      DamHeal: 3
-    - sprite: {fileID: 21300000, guid: 719e94fe0c255fd48a6067bce65230a7, type: 3}
-      MonsterType: 0
-      DamHeal: 1
-  - Tiles:
-    - sprite: {fileID: 21300000, guid: 1fc96fc5e29ee0543a1aa360c23a9a30, type: 3}
-      MonsterType: 1
-      DamHeal: 0
-    - sprite: {fileID: 21300000, guid: 6ea60bb0a9a12b24ba31ad35ef823051, type: 3}
-      MonsterType: 3
-      DamHeal: 3
-    - sprite: {fileID: 21300000, guid: ecdabfb375c80554d970758af9ca0224, type: 3}
-      MonsterType: 0
-      DamHeal: 2
-    - sprite: {fileID: 21300000, guid: 03316b71c34f38845b15fcd1f81f0128, type: 3}
-      MonsterType: 1
-      DamHeal: 5
-  - Tiles:
-    - sprite: {fileID: 21300000, guid: 1fc96fc5e29ee0543a1aa360c23a9a30, type: 3}
-      MonsterType: 1
-      DamHeal: 0
-    - sprite: {fileID: 21300000, guid: 6ea60bb0a9a12b24ba31ad35ef823051, type: 3}
-      MonsterType: 3
-      DamHeal: 4
-    - sprite: {fileID: 21300000, guid: ecdabfb375c80554d970758af9ca0224, type: 3}
-      MonsterType: 0
-      DamHeal: 2
-    - sprite: {fileID: 21300000, guid: 08c65c08751170545b227c91205450f5, type: 3}
-      MonsterType: 1
-      DamHeal: 5
-    - sprite: {fileID: 21300000, guid: 08c65c08751170545b227c91205450f5, type: 3}
-      MonsterType: 1
-      DamHeal: 2
-  - Tiles:
-    - sprite: {fileID: 21300000, guid: 1fc96fc5e29ee0543a1aa360c23a9a30, type: 3}
-      MonsterType: 1
-      DamHeal: 0
-    - sprite: {fileID: 21300000, guid: 6ea60bb0a9a12b24ba31ad35ef823051, type: 3}
-      MonsterType: 3
-      DamHeal: 4
-    - sprite: {fileID: 21300000, guid: 9bfe6986ca3817e4a8d6dbe2c679a8c5, type: 3}
-      MonsterType: 0
-      DamHeal: 2
-    - sprite: {fileID: 21300000, guid: 08c65c08751170545b227c91205450f5, type: 3}
-      MonsterType: 1
-      DamHeal: 12
-    - sprite: {fileID: 21300000, guid: 719e94fe0c255fd48a6067bce65230a7, type: 3}
-      MonsterType: 0
-      DamHeal: 1
-  Current:
-  - sprite: {fileID: 0}
-    MonsterType: 0
-    DamHeal: 0
-  - sprite: {fileID: 0}
-    MonsterType: 0
-    DamHeal: 0
-  - sprite: {fileID: 0}
-    MonsterType: 0
-    DamHeal: 0
-  - sprite: {fileID: 0}
-    MonsterType: 0
-    DamHeal: 0
-  - sprite: {fileID: 0}
-    MonsterType: 0
-    DamHeal: 0
-  - sprite: {fileID: 0}
-    MonsterType: 0
-    DamHeal: 0
-  - sprite: {fileID: 0}
-    MonsterType: 0
-    DamHeal: 0
-  - sprite: {fileID: 0}
-    MonsterType: 0
-    DamHeal: 0
-  - sprite: {fileID: 0}
-    MonsterType: 0
-    DamHeal: 0
-  GameTile:
-  - {fileID: 1041265730139935897}
-  - {fileID: 3423143939847785764}
-  - {fileID: 4441354607873939215}
-  - {fileID: 8852536686184082625}
-  - {fileID: 8605520347409928559}
-  - {fileID: 2163593158764202263}
-  - {fileID: 707673611282750182}
-  - {fileID: 667723536589788357}
-  - {fileID: 6800106161440220075}
-  PlayerHp: 3
-  PlayerStepCounter: 0
-  PlayerLevel: 0
 --- !u!224 &9172089666841559726
 RectTransform:
   m_ObjectHideFlags: 0
