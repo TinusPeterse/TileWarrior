@@ -19,7 +19,7 @@ public class Mage : ItemLayOut
     {
         base.CheckTile(index);
         SpecialCounter = GameObject.FindGameObjectWithTag("KillingSpreeCounter");
-        SpecialCounter.GetComponentInChildren<Text>().text = MageCounter.ToString();
+        SpecialCounter.GetComponentInChildren<TextMeshProUGUI>().text = MageCounter.ToString();
     }
     public override void Mana(int index)
     {
@@ -74,6 +74,14 @@ public class Mage : ItemLayOut
         else
         {
             base.Monster(index);
+        }
+        if (MageCounter >= 10)
+        {
+            PlayerTile.sprite = MageRage;
+        }
+        else
+        {
+            PlayerTile.sprite = StartSprite;
         }
     }
     public void KillMonsters(int index)

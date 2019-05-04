@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Warrior : ItemLayOut
 {
@@ -59,7 +60,7 @@ public class Warrior : ItemLayOut
             Current[PlayerIndex].sprite = BasicSprite;
         }
         PlayerStepCounter++;
-        PlayerStepObject.GetComponentInChildren<Text>().text = PlayerStepCounter.ToString();
+        PlayerStepObject.GetComponentInChildren<TextMeshProUGUI>().text = PlayerStepCounter.ToString();
         if (Current[index].MonsterType.ToString() == "Potion")
         {
             WarriorRage = 0;
@@ -76,19 +77,19 @@ public class Warrior : ItemLayOut
                 PlayerArmor = 0;
                 if (PlayerHp > LastPlayerHp) { PlayerHp = LastPlayerHp; }
             }
-            PlayerArmorObject.GetComponentInChildren<Text>().text = PlayerArmor.ToString();
-            PlayerHpObject.GetComponentInChildren<Text>().text = PlayerHp.ToString();
+            PlayerArmorObject.GetComponentInChildren<TextMeshProUGUI>().text = PlayerArmor.ToString();
+            PlayerHpObject.GetComponentInChildren<TextMeshProUGUI>().text = PlayerHp.ToString();
             UpdateTile(index, 0); TriggerRandomTile(index);
         }
         else if (Current[index].MonsterType.ToString() == "Armor")
         {
             PlayerArmor += Current[index].DamHeal;
-            PlayerArmorObject.GetComponentInChildren<Text>().text = PlayerArmor.ToString();
+            PlayerArmorObject.GetComponentInChildren<TextMeshProUGUI>().text = PlayerArmor.ToString();
             WarriorRage = 0;
             Current[PlayerIndex].sprite = BasicSprite;
             UpdateTile(index, 0); TriggerRandomTile(index);
         }
         SpecialCounter = GameObject.FindGameObjectWithTag("KillingSpreeCounter");
-        SpecialCounter.GetComponentInChildren<Text>().text = WarriorRage.ToString();
+        SpecialCounter.GetComponentInChildren<TextMeshProUGUI>().text = WarriorRage.ToString();
     }
 }

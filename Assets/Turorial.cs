@@ -228,11 +228,11 @@ public class Turorial : Warrior
         UpdateTile(Index, TileInt);
         if (Current[Index].MonsterType.ToString() == "Monster")
         {
-            GameTile[Index].GetComponentInChildren<Text>().color = Color.red;
+            GameTile[Index].GetComponentInChildren<TextMeshProUGUI>().color = Color.red;
         }
         else
         {
-            GameTile[Index].GetComponentInChildren<Text>().color = Color.white;
+            GameTile[Index].GetComponentInChildren<TextMeshProUGUI>().color = Color.white;
         }
     }
 }

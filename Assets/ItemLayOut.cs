@@ -52,12 +52,25 @@ public class ItemLayOut : MonoBehaviour
         PlayerHpObject = GameObject.FindGameObjectWithTag("PlayerHp");
         PlayerArmorObject = GameObject.FindGameObjectWithTag("PlayerArmor");
         PlayerStepObject = GameObject.FindGameObjectWithTag("PlayerStep");
-        PlayerHpObject.GetComponentInChildren<Text>().text = PlayerHp.ToString();
-        PlayerArmorObject.GetComponentInChildren<Text>().text = PlayerArmor.ToString();
-        PlayerStepObject.GetComponentInChildren<Text>().text = PlayerStepCounter.ToString();
+        PlayerHpObject.GetComponentInChildren<TextMeshProUGUI>().text = PlayerHp.ToString();
+        PlayerArmorObject.GetComponentInChildren<TextMeshProUGUI>().text = PlayerArmor.ToString();
+        PlayerStepObject.GetComponentInChildren<TextMeshProUGUI>().text = PlayerStepCounter.ToString();
     }
     #region Yeet
-    
+    bool AllTypes(List<Tile> LevelMo)
+    {
+        bool Monster = false;
+        bool Potion = false;
+        bool Armor = false;
+        for (int i = 0; i < LevelMo.Count; i++)
+        {
+            if (LevelMo[i].MonsterType == Tile.TypeMonster.Armor) { Armor = true; }
+            if (LevelMo[i].MonsterType == Tile.TypeMonster.Monster) { Monster = true; }
+            if (LevelMo[i].MonsterType == Tile.TypeMonster.Potion) { Potion = true; }
+        }
+        if (Armor && Potion && Monster) { return true; }
+        else { return false; }
+    }
     int Difficulty = 0;
     public void GenerateNext()
     {
@@ -66,7 +79,7 @@ public class ItemLayOut : MonoBehaviour
         LevelMonsters = new List<Tile>();
         LevelMonsters.Add(PlayerTile);
         Difficulty = 0;
-        while ((Difficulty < PlayerLevel || LevelMonsters.Count < 4 + PlayerLevel/5) || Difficulty > (PlayerLevel) * 1.2 )
+        while ((Difficulty < PlayerLevel || LevelMonsters.Count < 4 + PlayerLevel/5) || Difficulty > (PlayerLevel) * 1.2 || (!AllTypes(LevelMonsters)) )
         {
             CurrentMonster = Monsters[Random.Range(0, Monsters.Length - 1)];
             if (CurrentMonster. RequiredLevel >= PlayerLevel){ continue; }
@@ -195,7 +208,7 @@ public class ItemLayOut : MonoBehaviour
     public virtual void CheckTile(int index)
     {
         PlayerStepCounter++;
-        PlayerStepObject.GetComponentInChildren<Text>().text = PlayerStepCounter.ToString();
+        PlayerStepObject.GetComponentInChildren<TextMeshProUGUI>().text = PlayerStepCounter.ToString();
         if (Current[index].MonsterType.ToString() == "Potion")
         {
             Potion(index);
@@ -220,7 +233,7 @@ public class ItemLayOut : MonoBehaviour
         public void Potion(int index)
         {
             PlayerHp += Current[index].DamHeal;
-            PlayerHpObject.GetComponentInChildren<Text>().text = PlayerHp.ToString();
+            PlayerHpObject.GetComponentInChildren<TextMeshProUGUI>().text = PlayerHp.ToString();
             UpdateTile(index, 0);
             TriggerRandomTile(index);
         }
@@ -231,8 +244,8 @@ public class ItemLayOut : MonoBehaviour
             PlayerHp -= (Current[index].DamHeal - PlayerArmor);
             PlayerArmor = 0;
             if (PlayerHp > LastPlayerHp) { PlayerHp = LastPlayerHp; }
-            PlayerArmorObject.GetComponentInChildren<Text>().text = PlayerArmor.ToString();
-            PlayerHpObject.GetComponentInChildren<Text>().text = PlayerHp.ToString();
+            PlayerArmorObject.GetComponentInChildren<TextMeshProUGUI>().text = PlayerArmor.ToString();
+            PlayerHpObject.GetComponentInChildren<TextMeshProUGUI>().text = PlayerHp.ToString();
             UpdateTile(index, 0);
             TriggerRandomTile(index);
         }
@@ -240,7 +253,7 @@ public class ItemLayOut : MonoBehaviour
         public void Armor(int index)
         {
             PlayerArmor += Current[index].DamHeal;
-            PlayerArmorObject.GetComponentInChildren<Text>().text = PlayerArmor.ToString();
+            PlayerArmorObject.GetComponentInChildren<TextMeshProUGUI>().text = PlayerArmor.ToString();
             UpdateTile(index, 0);
             TriggerRandomTile(index);
         }
@@ -256,11 +269,11 @@ public class ItemLayOut : MonoBehaviour
         GameTile[CurrentInt].GetComponent<SpriteRenderer>().sprite = Current[CurrentInt].sprite;
         if (AllTiles[AllTileInt].DamHeal != 0)
         {
-            GameTile[CurrentInt].GetComponentInChildren<Text>().text = AllTiles[AllTileInt].DamHeal.ToString();
+            GameTile[CurrentInt].GetComponentInChildren<TextMeshProUGUI>().text = AllTiles[AllTileInt].DamHeal.ToString();
         }
         else
         {
-            GameTile[CurrentInt].GetComponentInChildren<Text>().text = "";
+            GameTile[CurrentInt].GetComponentInChildren<TextMeshProUGUI>().text = "";
         }
     }
     public void RandomTile(int Index)
@@ -269,11 +282,11 @@ public class ItemLayOut : MonoBehaviour
         
         if (Current[Index].MonsterType.ToString() == "Monster")
         {
-            GameTile[Index].GetComponentInChildren<Text>().color = Color.red;
+            GameTile[Index].GetComponentInChildren<TextMeshProUGUI>().color = Color.red;
         }
         else
         {
-            GameTile[Index].GetComponentInChildren<Text>().color = Color.white;
+            GameTile[Index].GetComponentInChildren<TextMeshProUGUI>().color = Color.white;
         }
     }
     public virtual void save()
