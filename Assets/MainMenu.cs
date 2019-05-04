@@ -28,7 +28,7 @@ public class MainMenu : Turorial
 
     public void PlayGame()
     {
-        if (characters[2] == currentCharacter) { SceneManager.LoadScene(4); }
+        if (characters[1] == currentCharacter) { SceneManager.LoadScene(4); }
         else { SceneManager.LoadScene(1); }
     }
     public void PlayTutorial()

@@ -612,7 +612,6 @@ MonoBehaviour:
     DamHeal: 6
     RequiredLevel: 1
     MaxLevel: 10
-  LevelMonsters: []
   PlayerHp: 3
   PlayerStepCounter: 0
   PlayerLevel: 0
@@ -630,7 +629,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92345373538e74446a1a188928428b1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemLayOut: {fileID: 0}
+  itemLayOut: {fileID: 415504360}
   detectSwipeOnlyAfterRelease: 1
   SWIPE_THRESHOLD: 20
 --- !u!1 &441425020

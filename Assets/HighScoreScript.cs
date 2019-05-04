@@ -12,4 +12,8 @@ public class HighScoreScript : MonoBehaviour
     {
         text.text = "Warrior : " + PlayerPrefs.GetInt("WarriorHighScore").ToString() + "\nMage : " + PlayerPrefs.GetInt("MageHighScore").ToString();
     }
+    public void Update()
+    {
+        text.text = "Warrior : " + PlayerPrefs.GetInt("WarriorHighScore").ToString() + "\nMage : " + PlayerPrefs.GetInt("MageHighScore").ToString();
+    }
 }

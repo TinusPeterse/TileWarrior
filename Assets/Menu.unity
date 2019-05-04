@@ -932,13 +932,9 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 1fc96fc5e29ee0543a1aa360c23a9a30, type: 3}
     Hint: 'The Unstoppable Warrior Once a Warrior is on a killing spree, he won''t
       take damage;  Hint: Kill 3 or more victims without interuption.'
-  - name: Vampire
-    sprite: {fileID: 21300000, guid: 723d0b3253a2c3b4a8ddc7bed0d432ba, type: 3}
-    Hint: Steals the life from the foes around him;  Can only be used once every 50
-      steps
-  - name: Wizard
+  - name: Wizzard
     sprite: {fileID: 21300000, guid: 08267e05809508f4b988180bc53b495f, type: 3}
-    Hint: Able to deal damage across the bord
+    Hint: EXPLOSION
   SelectedCharacter: 0
 --- !u!1 &369989215
 GameObject:
