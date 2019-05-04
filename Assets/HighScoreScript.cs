@@ -10,6 +10,6 @@ public class HighScoreScript : MonoBehaviour
     [SerializeField] TextMeshProUGUI text;
     void Start()
     {
-        text.text = "Highscore : " + PlayerPrefs.GetInt("HighScore").ToString();
+        text.text = "Warrior : " + PlayerPrefs.GetInt("WarriorHighScore").ToString() + "\nMage : " + PlayerPrefs.GetInt("MageHighScore").ToString();
     }
 }

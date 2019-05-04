@@ -6,6 +6,7 @@ Assets/Menu.unity
 Assets/Pics/PlayingField.unity
 Assets/Tutorial.unity
 Assets/Tutorial Death.unity
+Assets/Mage.unity
 SceneListEnd?
 8c1bea6a3ac94a054ba255cd599a2396 Unity.TextMeshPro.dll:TMPro.TMP_SelectionCaret
 172fb9d33b6629abeab801556d02c983 Unity.Timeline.dll:UnityEngine.Timeline.AudioPlayableAsset
@@ -92,11 +93,12 @@ d52e3e77f8a242423cbec96e6e2d4354 Unity.Analytics.Tracker.dll:UnityEngine.Analyti
 9f09696ba64c2b1f2d1885af8ffcf92e Unity.Timeline.dll:UnityEngine.Timeline.ControlTrack
 f476f90b17bbb676cf2c0967453f05ef Unity.TextMeshPro.dll:TMPro.TMP_Asset
 9f09696ba64c2b1f2d1885af8ffcf92e Unity.Timeline.dll:UnityEngine.Timeline.SignalTrack
+9574808aeaeb813cf58c76beb8f6ae97 Assembly-CSharp.dll:.Mage
 3e402a8de2e3e8efd4a4b53fe4a24c72 Unity.Analytics.Editor.dll:UnityEditor.Analytics.AnalyticsEventTrackerEditor
 3e402a8de2e3e8efd4a4b53fe4a24c72 Unity.TextMeshPro.dll:TMPro.TMP_SpriteAnimator
 732d325f353f7a5f6ef1a88e97abcfc7 Unity.TextMeshPro.dll:TMPro.TextContainer
 049beffabef88b2dd81139d0c5d7e908 Assembly-CSharp.dll:.SceneLoader
-7d265c72b4b7f8720131ab7b345d27f1 Assembly-CSharp.dll:.MainMenu
+fba7cde453aecf2a29f44070a54f1bab Assembly-CSharp.dll:.MainMenu
 3e402a8de2e3e8efd4a4b53fe4a24c72 Assembly-CSharp.dll:.Testscript
 3e402a8de2e3e8efd4a4b53fe4a24c72 Assembly-CSharp.dll:.TutorialDeath
 4daa388de978d2f6337b082a6c89f8ed Unity.TextMeshPro.dll:TMPro.PackageResourceImporterWindow
@@ -104,7 +106,7 @@ f476f90b17bbb676cf2c0967453f05ef Unity.TextMeshPro.dll:TMPro.TMP_Asset
 254c19c7bc979b2676d35964d82fecf6 Unity.TextMeshPro.dll:TMPro.TMP_FontAsset
 72cf131893fc30320f2a3b0890c84ffa Unity.TextMeshPro.dll:TMPro.TMP_Settings
 3e402a8de2e3e8efd4a4b53fe4a24c72 Unity.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
-f42cb11e9cbc1eb90a72ca2a6367d32e Assembly-CSharp.dll:.MonsterGen
+4a74144344a8198d0aff41d496fb379d Assembly-CSharp.dll:.MonsterGen
 834a9871b751627a4525e165c5528ef5 UnityEngine.TestRunner.dll:UnityEngine.TestTools.EnumerableSetUpTearDownCommandState
 3e402a8de2e3e8efd4a4b53fe4a24c72 UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.PlayModeRunnerCallback
 d11b2ff7cb196c7288ec3041bd921b13 UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.PlaymodeTestsController
@@ -118,9 +120,9 @@ b77f491f4d293c2f571bfcc70033be66 Unity.Timeline.dll:UnityEngine.Timeline.AudioTr
 870940a0625117f7e49a7b05e064dd93 Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 82e7f0e68118df712cc66dd0730395c6 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 9a1f40c2499d73478196e2653e1be934 Unity.TextMeshPro.dll:TMPro.TMP_ColorGradient
-c4563d8044f46cf4109b6d6763e68893 Assembly-CSharp.dll:.Warrior
-c4563d8044f46cf4109b6d6763e68893 Assembly-CSharp.dll:.Turorial
+8dce535a69081da31a495267a232672b Assembly-CSharp.dll:.Warrior
+8dce535a69081da31a495267a232672b Assembly-CSharp.dll:.Turorial
 98b3b371395017a40db0a6475b7dd172 Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
 d0c04467fb1e36d452dc6ca9a01bf69d Unity.Timeline.dll:UnityEngine.Timeline.SignalEmitter
-4b1168b0da6bdba890b1c02462152a63 Assembly-CSharp.dll:.ItemLayOut
+0f37e72f3f1bfd920054338872031fec Assembly-CSharp.dll:.ItemLayOut
 9f09696ba64c2b1f2d1885af8ffcf92e Unity.Timeline.dll:UnityEngine.Timeline.PlayableTrack

@@ -8,10 +8,19 @@ using TMPro;
 public class MainMenu : Turorial
 {    
     public Character[] characters;
-    public Character currentCharacter;
+    protected Character currentCharacter;
     public int SelectedCharacter = 0;
     #region MainMenu
-
+    public override void Start()
+    {
+        base.Start();
+        PlayerIndex = 4;
+    }
+    public void ToggleHighScores()
+    {
+        GameObject Highscores = gameObject.GetComponentInChildren<HighScoreScript>(true).gameObject;
+        Highscores.active = !Highscores.active;
+    }
     public void ResetAll()
     {
         PlayerPrefs.DeleteAll();
@@ -19,7 +28,8 @@ public class MainMenu : Turorial
 
     public void PlayGame()
     {
-        SceneManager.LoadScene(1);
+        if (characters[2] == currentCharacter) { SceneManager.LoadScene(4); }
+        else { SceneManager.LoadScene(1); }
     }
     public void PlayTutorial()
     {
@@ -37,8 +47,7 @@ public class MainMenu : Turorial
     {
         GameTile[6].GetComponent<SpriteRenderer>().sprite = characters[characterIndex].sprite;
         AllTiles[0].sprite = characters[characterIndex].sprite;
-        //ExpText.text = characters[characterIndex].Hint;
-        //ExplanationButton.GetComponentInChildren<TextMeshProUGUI>().text = characters[characterIndex].name;
+        currentCharacter = characters[characterIndex];
     }
     #endregion
     public override void CheckDeath()
@@ -61,11 +70,11 @@ public class MainMenu : Turorial
             {
                 switch (i)
                 {
-                    case 0: ForceTile(i, 0); break;
+                    case 0: ForceTile(i, 1); break;
                     case 1: ForceTile(i, 1); break;
                     case 2: ForceTile(i, 2); break;
                     case 3: ForceTile(i, 3); break;
-                    case 4: ForceTile(i, 1); break;
+                    case 4: ForceTile(i, 0); break;
                     case 5: ForceTile(i, 4); break;
                     case 6: ForceTile(i, 5); break;
                     case 7: ForceTile(i, 1); break;
@@ -88,7 +97,7 @@ public class MainMenu : Turorial
             {
                 switch (i)
                 {
-                    case 0: break;
+                    case 0: ToggleHighScores(); break;
                     case 1: break;
                     case 2: PlayTutorial(); break;
                     case 3: PlayGame(); break;

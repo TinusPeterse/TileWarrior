@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Tutorial Death.unity
     guid: e19634fd2dfea9843897550e295453f1
+  - enabled: 1
+    path: Assets/Mage.unity
+    guid: ff4adf7de02f01e45b9ef33fe49a7925
   m_configObjects: {}

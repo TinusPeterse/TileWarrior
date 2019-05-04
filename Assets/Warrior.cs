@@ -36,6 +36,16 @@ public class Warrior : ItemLayOut
     {
         PlayerPrefs.SetInt("WarriorRage", 0);
         base.CheckDeath();
+        if (PlayerStepCounter > HighScore)
+        {
+            HighScore = PlayerStepCounter;
+            PlayerPrefs.SetInt("HighScore", HighScore);
+            PlayerPrefs.SetInt("WarriorHighScore", HighScore);
+        }
+        if (PlayerHp <= 0)
+        {
+            HpDropped0();
+        }
     }
     public override void CheckTile(int index)
     {

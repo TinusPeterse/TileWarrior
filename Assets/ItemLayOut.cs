@@ -16,13 +16,13 @@ public class ItemLayOut : MonoBehaviour
     public GameObject[] GameTile = new GameObject [9];
     protected GameObject PlayerHpObject, PlayerArmorObject, PlayerStepObject, SpecialCounter;
     public Tile[] Monsters;
-    public List<Tile> LevelMonsters;
+    protected List<Tile> LevelMonsters;
     private Tile CurrentMonster;
     protected int PlayerArmor;
     public int PlayerHp;
     public int PlayerStepCounter = 0;
     public int PlayerLevel = 0;
-    private int HighScore;
+    protected int HighScore;
     public void Awake()
     {
         Screen.orientation = ScreenOrientation.LandscapeLeft;
@@ -44,6 +44,7 @@ public class ItemLayOut : MonoBehaviour
         PlayerLevel = PlayerPrefs.GetInt("PlayerLevel", 0);
         PlayerStepCounter = PlayerPrefs.GetInt("PlayerStepCounter", PlayerStepCounter);
         HighScore = PlayerPrefs.GetInt("HighScore", 0);
+
         if (Generate) { GenerateNext();AllTiles[0] = PlayerTile;}
         else { AllTiles = Levels[PlayerLevel].Tiles; }
         RandomField();
@@ -99,6 +100,10 @@ public class ItemLayOut : MonoBehaviour
         {
             Mult = 2;
         }
+        else if (YEET.MonsterType == Tile.TypeMonster.ManaPots)
+        {
+            Mult = -1;
+        }
         Difficulty = (int)(Mult * YEET.DamHeal);
         return Difficulty;
 
@@ -131,22 +136,25 @@ public class ItemLayOut : MonoBehaviour
         }
         save();
     }
-
+    public void HpDropped0()
+    {
+        PlayerPrefs.SetInt("PlayerHp", 3);
+        PlayerPrefs.SetInt("PlayerArmor", 0);
+        PlayerPrefs.SetInt("PlayerLevel", 0);
+        PlayerPrefs.SetInt("PlayerStepCounter", 0);
+        Resett();
+        SceneManager.LoadScene(0);
+    }
     public virtual void CheckDeath()
     {
-        if (PlayerStepCounter > HighScore)
+        if (PlayerStepCounter > PlayerPrefs.GetInt("HighScore"))
         {
             HighScore = PlayerStepCounter;
             PlayerPrefs.SetInt("HighScore", HighScore);
         }
         if (PlayerHp <= 0)
         {
-            PlayerPrefs.SetInt("PlayerHp", 3);
-            PlayerPrefs.SetInt("PlayerArmor", 0);
-            PlayerPrefs.SetInt("PlayerLevel", 0);
-            PlayerPrefs.SetInt("PlayerStepCounter", 0);
-            Resett();
-            SceneManager.LoadScene(0);
+            HpDropped0();
         }
     }
     public void HandleInput()
@@ -200,7 +208,15 @@ public class ItemLayOut : MonoBehaviour
         {
             Armor(index);
         }
+        else if (Current[index].MonsterType.ToString() == "ManaPots")
+        {
+            Mana(index);
+        }
     }
+        public virtual void Mana(int index)
+        {
+            
+        }
         public void Potion(int index)
         {
             PlayerHp += Current[index].DamHeal;
@@ -209,7 +225,7 @@ public class ItemLayOut : MonoBehaviour
             TriggerRandomTile(index);
         }
 
-        public void Monster(int index)
+        public virtual void Monster(int index)
         {
             int LastPlayerHp = PlayerHp;
             PlayerHp -= (Current[index].DamHeal - PlayerArmor);
@@ -273,7 +289,7 @@ public class ItemLayOut : MonoBehaviour
 public class Tile
 {
     public Sprite sprite;
-    public enum TypeMonster { Potion, Monster, Weapon, Armor, Menu}
+    public enum TypeMonster { Potion, Monster, Weapon, Armor, Menu, ManaPots}
     public TypeMonster MonsterType;
     public int DamHeal;
     public int RequiredLevel;
