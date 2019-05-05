@@ -10,16 +10,19 @@ public class MainMenu : Turorial
     public Character[] characters;
     protected Character currentCharacter;
     public int SelectedCharacter = 0;
+    public HighScoreScript highScoreScript;
     #region MainMenu
     public override void Start()
     {
         base.Start();
         PlayerIndex = 4;
+        highScoreScript.Update();
     }
     public void ToggleHighScores()
     {
         GameObject Highscores = gameObject.GetComponentInChildren<HighScoreScript>(true).gameObject;
         Highscores.active = !Highscores.active;
+        highScoreScript.Update();
     }
     public void ResetAll()
     {
@@ -33,7 +36,8 @@ public class MainMenu : Turorial
     }
     public void PlayTutorial()
     {
-        SceneManager.LoadScene(2);
+        if (characters[1] == currentCharacter) { SceneManager.LoadScene(5); }
+        else { SceneManager.LoadScene(2); }
     }
 
     public void NextCharacter()
@@ -58,7 +62,6 @@ public class MainMenu : Turorial
     {
         TimesRandom = 0;
         AllTiles = Levels[PlayerLevel].Tiles;
-        PlayerPrefs.DeleteAll();
         RandomField();
     }
     public override void RandomField()
@@ -99,10 +102,10 @@ public class MainMenu : Turorial
                 {
                     case 0: ToggleHighScores(); break;
                     case 1: break;
-                    case 2: PlayTutorial(); break;
+                    case 2: ResetAll(); break;
                     case 3: PlayGame(); break;
                     case 4: break;
-                    case 5: ResetAll(); break;
+                    case 5: PlayTutorial(); break;
                     case 6: NextCharacter(); break;
                     case 7: break;
                     case 8: /*Store*/ break;

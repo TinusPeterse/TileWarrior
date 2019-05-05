@@ -7,6 +7,7 @@ using TMPro;
 
 public class Turorial : Warrior
 {
+    public Sprite Portal;
     protected int TimesRandom = 0;
     int LevelsDone = 0;
     private GameObject RestartButton;
@@ -21,7 +22,6 @@ public class Turorial : Warrior
         TimesRandom = 0;
         RandomField();
     }
-    
     private void RessetStats()
     {
         PlayerPrefs.SetInt("PlayerHp", 3);
@@ -31,15 +31,16 @@ public class Turorial : Warrior
         PlayerArmor = 0;
         PlayerStepCounter = 0;
         if (PlayerHpObject == null) { return; }
-        PlayerHpObject.GetComponentInChildren<Text>().text = PlayerHp.ToString();
-        PlayerArmorObject.GetComponentInChildren<Text>().text = PlayerArmor.ToString();
-        PlayerStepObject.GetComponentInChildren<Text>().text = PlayerStepCounter.ToString();
+        PlayerHpObject.GetComponentInChildren<TextMeshProUGUI>().text = PlayerHp.ToString();
+        PlayerArmorObject.GetComponentInChildren<TextMeshProUGUI>().text = PlayerArmor.ToString();
+        PlayerStepObject.GetComponentInChildren<TextMeshProUGUI>().text = PlayerStepCounter.ToString();
     }
     public override void Resett()
     {
         PlayerPrefs.DeleteKey("PlayerHp");
         PlayerPrefs.DeleteKey("PlayerArmor");
         PlayerPrefs.DeleteKey("PlayerStepCounter");
+        PlayerPrefs.DeleteKey("PlayerLevel");
         base.Resett();
     }
     public override void RandomField()
@@ -48,7 +49,7 @@ public class Turorial : Warrior
         {
             if (TimesRandom == 0)
             {
-                GameTile[4].GetComponent<SpriteRenderer>().color = Color.white;
+                RessetStats();
                 SetHint("Potions Restore Health");
                 for (int i = 0; i < 9; i++)
                 {
@@ -61,7 +62,7 @@ public class Turorial : Warrior
             }
             if (Current[5].sprite != AllTiles[1].sprite)
             {
-                GameTile[4].GetComponent<SpriteRenderer>().color = Color.blue;
+                GameTile[4].GetComponent<SpriteRenderer>().sprite = Portal;
             }
             if (Current[5].sprite != AllTiles[1].sprite && Current[5].sprite != AllTiles[0].sprite)
             {
@@ -74,20 +75,19 @@ public class Turorial : Warrior
         {
             if (TimesRandom == 0)
             {
-                GameTile[4].GetComponent<SpriteRenderer>().color = Color.white;
                 SetHint("Monsters deal damage upon contact");
                 for (int i = 0; i < 9; i++)
                 {
                     if (i == 0) { ForceTile(i, 2); }
                     else if (i == 3) { ForceTile(i, 0); PlayerIndex = i; }
-                    else if (i == 5) { ForceTile(i, 3); Current[i].DamHeal = 2; GameTile[i].GetComponentInChildren<Text>().text = 2.ToString(); }
+                    else if (i == 5) { ForceTile(i, 3); Current[i].DamHeal = 2; GameTile[i].GetComponentInChildren<TextMeshProUGUI>().text = 2.ToString(); }
                     else { ForceTile(i, 2); }
                 }
                 TimesRandom++;
             }
             if (Current[5].sprite != AllTiles[3].sprite)
             {
-                GameTile[4].GetComponent<SpriteRenderer>().color = Color.blue;
+                GameTile[4].GetComponent<SpriteRenderer>().sprite = Portal;
             }
             if (Current[5].sprite != AllTiles[3].sprite && Current[5].sprite != AllTiles[0].sprite)
             {
@@ -98,7 +98,6 @@ public class Turorial : Warrior
         }
         if (LevelsDone == 2)
         {
-            GameTile[4].GetComponent<SpriteRenderer>().color = Color.white;
             SetHint("Armor blocks damage taken from the first monster you hit");
             if (TimesRandom == 0)
             {
@@ -107,14 +106,14 @@ public class Turorial : Warrior
                     if (i == 0) { ForceTile(i, 2); }
                     else if (i == 3) { ForceTile(i, 0); PlayerIndex = i; }
                     else if (i == 4) { ForceTile(i, 4); }
-                    else if (i == 5) { ForceTile(i, 3); Current[i].DamHeal = 3; GameTile[i].GetComponentInChildren<Text>().text = 4.ToString(); }
+                    else if (i == 5) { ForceTile(i, 3); Current[i].DamHeal = 3; GameTile[i].GetComponentInChildren<TextMeshProUGUI>().text = 4.ToString(); }
                     else { ForceTile(i, 2); }
                 }
                 TimesRandom++;
             }
             if (Current[5].sprite != AllTiles[3].sprite)
             {
-                GameTile[4].GetComponent<SpriteRenderer>().color = Color.blue;
+                GameTile[4].GetComponent<SpriteRenderer>().sprite = Portal;
             }
             if (Current[5].sprite != AllTiles[3].sprite && Current[5].sprite != AllTiles[0].sprite)
             {
@@ -128,11 +127,10 @@ public class Turorial : Warrior
             SetHint("Once you are on a killing spree you become invulnerable");
             if (TimesRandom == 0)
             {
-                GameTile[4].GetComponent<SpriteRenderer>().color = Color.white;
                 for (int i = 0; i < 9; i++)
                 {
                     if (i == 0) { ForceTile(i, 0); PlayerIndex = i; }
-                    else if (i == 1) { ForceTile(i, 1); Current[i].DamHeal = 4; GameTile[i].GetComponentInChildren<Text>().text = 4.ToString(); }
+                    else if (i == 1) { ForceTile(i, 1); Current[i].DamHeal = 4; GameTile[i].GetComponentInChildren<TextMeshProUGUI>().text = 4.ToString(); }
                     else if (i == 2) { ForceTile(i, 4); }
                     else if (i == 5) { ForceTile(i, 3); }
                     else if (i == 6) { ForceTile(i, 3); }
@@ -145,7 +143,7 @@ public class Turorial : Warrior
             }
             if (Current[3] != AllTiles[3] && Current[5] != AllTiles[3] && Current[6] != AllTiles[3] && Current[7] != AllTiles[3] && Current[8] != AllTiles[3])
             {
-                GameTile[4].GetComponent<SpriteRenderer>().color = Color.blue;
+                GameTile[4].GetComponent<SpriteRenderer>().sprite = Portal;
             }
             if (Current[3] == AllTiles[2] && Current[5] == AllTiles[2] && Current[6] == AllTiles[2] && Current[7] == AllTiles[2] && Current[8] == AllTiles[2] && Current[4].sprite == AllTiles[0].sprite)
             {
@@ -159,12 +157,11 @@ public class Turorial : Warrior
             SetHint("Your killing spree stops if you hit something else then a foe");
             if (TimesRandom == 0)
             {
-                GameTile[4].GetComponent<SpriteRenderer>().color = Color.white;
                 for (int i = 0; i < 9; i++)
                 {
                     if (i == 8) { ForceTile(i, 0); PlayerIndex = i; }
                     else if (i == 5) { ForceTile(i, 5); }
-                    else if (i == 3) { ForceTile(i, 4); Current[i].DamHeal = 15; GameTile[i].GetComponentInChildren<Text>().text = 15.ToString(); }
+                    else if (i == 3) { ForceTile(i, 4); Current[i].DamHeal = 15; GameTile[i].GetComponentInChildren<TextMeshProUGUI>().text = 15.ToString(); }
                     else if (i == 0 || i == 1 || i == 2 || i == 4 || i == 6 || i == 7) { ForceTile(i, 3); }
                     else { ForceTile(i, 2); }
                 }
@@ -190,7 +187,6 @@ public class Turorial : Warrior
         {
             if (TimesRandom == 0)
             {
-                GameTile[4].GetComponent<SpriteRenderer>().color = Color.white;
                 TimesRandom++;
             }
             SetHint("You have completed the tutorial");

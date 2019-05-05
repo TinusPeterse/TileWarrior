@@ -10,6 +10,12 @@ public class Warrior : ItemLayOut
     int WarriorRage;
     private Sprite BasicSprite;
     public Sprite WarriorRageSprite;
+    private int WarriorHighScore;
+    public override void Start()
+    {
+        base.Start();
+        WarriorHighScore = PlayerPrefs.GetInt("WarriorHighScore", 0);
+    }
     public override void Resett()
     {
         base.Resett();
@@ -35,18 +41,12 @@ public class Warrior : ItemLayOut
     }
     public override void CheckDeath()
     {
-        PlayerPrefs.SetInt("WarriorRage", 0);
+        if (PlayerStepCounter > WarriorHighScore)
+        {
+            WarriorHighScore = PlayerStepCounter;
+            PlayerPrefs.SetInt("WarriorHighScore", WarriorHighScore);
+        }
         base.CheckDeath();
-        if (PlayerStepCounter > HighScore)
-        {
-            HighScore = PlayerStepCounter;
-            PlayerPrefs.SetInt("HighScore", HighScore);
-            PlayerPrefs.SetInt("WarriorHighScore", HighScore);
-        }
-        if (PlayerHp <= 0)
-        {
-            HpDropped0();
-        }
     }
     public override void CheckTile(int index)
     {

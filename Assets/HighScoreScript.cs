@@ -8,12 +8,17 @@ using UnityEngine.UI;
 public class HighScoreScript : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI text;
+    private int MageHighScore, WarriorHighScore;
     void Start()
     {
-        text.text = "Warrior : " + PlayerPrefs.GetInt("WarriorHighScore").ToString() + "\nMage : " + PlayerPrefs.GetInt("MageHighScore").ToString();
+        MageHighScore = PlayerPrefs.GetInt("MageHighScore");
+        WarriorHighScore = PlayerPrefs.GetInt("WarriorHighScore");
+        text.text = "Warrior : " + WarriorHighScore.ToString() + "\nMage : " + MageHighScore.ToString();
     }
     public void Update()
     {
-        text.text = "Warrior : " + PlayerPrefs.GetInt("WarriorHighScore").ToString() + "\nMage : " + PlayerPrefs.GetInt("MageHighScore").ToString();
+        MageHighScore = PlayerPrefs.GetInt("MageHighScore");
+        WarriorHighScore = PlayerPrefs.GetInt("WarriorHighScore");
+        text.text = "Warrior : " + WarriorHighScore.ToString() + "\nMage : " + MageHighScore.ToString();
     }
 }

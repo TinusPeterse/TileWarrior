@@ -6,14 +6,15 @@ using UnityEngine.UI;
 
 public class Mage : ItemLayOut
 {
-    int MageCounter;
+    protected int MageCounter;
     public Sprite MageRage;
-    private Sprite StartSprite;
+    protected Sprite StartSprite;
+    private int MageHighScore;
     public override void Start()
     {
         base.Start();
         StartSprite = PlayerTile.sprite;
-        HighScore = PlayerPrefs.GetInt("MageHighScore");
+        MageHighScore = PlayerPrefs.GetInt("MageHighScore", 0);
     }
     public override void CheckTile(int index)
     {
@@ -36,21 +37,17 @@ public class Mage : ItemLayOut
     }
     public override void CheckDeath()
     {
-        if (PlayerStepCounter > HighScore)
+        if (PlayerStepCounter > MageHighScore)
         {
-            HighScore = PlayerStepCounter;
-            PlayerPrefs.SetInt("HighScore", HighScore);
-            PlayerPrefs.SetInt("MageHighScore", HighScore);
+            MageHighScore = PlayerStepCounter;
+            PlayerPrefs.SetInt("MageHighScore", MageHighScore);
         }
-        if (PlayerHp <= 0)
-        {
-            HpDropped0();
-        }
-
+        base.CheckDeath();
     }
+
     public override void Monster(int index)
     {
-        if (Current[index].sprite == Monsters[2].sprite || Current[index].sprite == Monsters[3].sprite)
+        if (CheckBunnys(index))
         {
             MageCounter++;
         }
@@ -84,16 +81,22 @@ public class Mage : ItemLayOut
             PlayerTile.sprite = StartSprite;
         }
     }
-    public void KillMonsters(int index)
+    public virtual void KillMonsters(int index)
     {
         if (index == PlayerIndex) { return; }
         while (Current[index].MonsterType == Tile.TypeMonster.Monster)
         {
-            if (Current[index].sprite == Monsters[2].sprite || Current[index].sprite == Monsters[3].sprite)
+            if (CheckBunnys(index))
             {
                 MageCounter++;
             }
             RandomTile(index);
         }
+    }
+    public virtual bool CheckBunnys(int index)
+    {
+        if (Current[index].sprite == AllTiles[2].sprite || Current[index].sprite == AllTiles[3].sprite)
+            return true;
+        else return false;
     }
 }

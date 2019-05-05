@@ -2,11 +2,12 @@ Android
 PlayerPath?
 D:/Unity/UnityProjects/TileWarrior/Builds/NotWorking.apk
 SceneListBegin?
-Assets/Menu.unity
-Assets/Pics/PlayingField.unity
-Assets/Tutorial.unity
-Assets/Tutorial Death.unity
-Assets/Mage.unity
+Assets/Scenes/Menu.unity
+Assets/Scenes/Warrior.unity
+Assets/Scenes/Warrior Tutorial.unity
+Assets/Scenes/Tutorial Death.unity
+Assets/Scenes/Mage.unity
+Assets/Scenes/Mage Tutorial.unity
 SceneListEnd?
 8c1bea6a3ac94a054ba255cd599a2396 Unity.TextMeshPro.dll:TMPro.TMP_SelectionCaret
 172fb9d33b6629abeab801556d02c983 Unity.Timeline.dll:UnityEngine.Timeline.AudioPlayableAsset
@@ -98,7 +99,7 @@ f476f90b17bbb676cf2c0967453f05ef Unity.TextMeshPro.dll:TMPro.TMP_Asset
 3e402a8de2e3e8efd4a4b53fe4a24c72 Unity.TextMeshPro.dll:TMPro.TMP_SpriteAnimator
 732d325f353f7a5f6ef1a88e97abcfc7 Unity.TextMeshPro.dll:TMPro.TextContainer
 049beffabef88b2dd81139d0c5d7e908 Assembly-CSharp.dll:.SceneLoader
-fba7cde453aecf2a29f44070a54f1bab Assembly-CSharp.dll:.MainMenu
+f42b0d3bba9127e473952eb4a6b5567e Assembly-CSharp.dll:.MainMenu
 3e402a8de2e3e8efd4a4b53fe4a24c72 Assembly-CSharp.dll:.Testscript
 3e402a8de2e3e8efd4a4b53fe4a24c72 Assembly-CSharp.dll:.TutorialDeath
 4daa388de978d2f6337b082a6c89f8ed Unity.TextMeshPro.dll:TMPro.PackageResourceImporterWindow
@@ -121,8 +122,11 @@ b77f491f4d293c2f571bfcc70033be66 Unity.Timeline.dll:UnityEngine.Timeline.AudioTr
 82e7f0e68118df712cc66dd0730395c6 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 9a1f40c2499d73478196e2653e1be934 Unity.TextMeshPro.dll:TMPro.TMP_ColorGradient
 8dce535a69081da31a495267a232672b Assembly-CSharp.dll:.Warrior
-8dce535a69081da31a495267a232672b Assembly-CSharp.dll:.Turorial
+476029ad6e9305aecc0feeebcaf38e3b Assembly-CSharp.dll:.Turorial
 98b3b371395017a40db0a6475b7dd172 Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
 d0c04467fb1e36d452dc6ca9a01bf69d Unity.Timeline.dll:UnityEngine.Timeline.SignalEmitter
+ed3e9ed7d0638651466bf312f88ee848 Assembly-CSharp.dll:.MEETTHEMONSTERS
 0f37e72f3f1bfd920054338872031fec Assembly-CSharp.dll:.ItemLayOut
 9f09696ba64c2b1f2d1885af8ffcf92e Unity.Timeline.dll:UnityEngine.Timeline.PlayableTrack
+3e402a8de2e3e8efd4a4b53fe4a24c72 Assembly-CSharp.dll:.NewBehaviourScript
+0ac50837e683f18255fb59d0def1f78f Assembly-CSharp.dll:.MageTutorial

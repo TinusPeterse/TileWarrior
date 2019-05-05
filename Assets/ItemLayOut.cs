@@ -22,7 +22,6 @@ public class ItemLayOut : MonoBehaviour
     public int PlayerHp;
     public int PlayerStepCounter = 0;
     public int PlayerLevel = 0;
-    protected int HighScore;
     public void Awake()
     {
         Screen.orientation = ScreenOrientation.LandscapeLeft;
@@ -38,17 +37,14 @@ public class ItemLayOut : MonoBehaviour
     }
     public virtual void Resett()
     {
-        PlayerHp = PlayerPrefs.GetInt("PlayerHp", 3);
+        PlayerHp = PlayerPrefs.GetInt("PlayerHp", 10);
         PlayerArmor = PlayerPrefs.GetInt("PlayerArmor", 0);
         PlayerIndex = 4;
         PlayerLevel = PlayerPrefs.GetInt("PlayerLevel", 0);
         PlayerStepCounter = PlayerPrefs.GetInt("PlayerStepCounter", PlayerStepCounter);
-        HighScore = PlayerPrefs.GetInt("HighScore", 0);
-
         if (Generate) { GenerateNext();AllTiles[0] = PlayerTile;}
         else { AllTiles = Levels[PlayerLevel].Tiles; }
         RandomField();
-        
         PlayerHpObject = GameObject.FindGameObjectWithTag("PlayerHp");
         PlayerArmorObject = GameObject.FindGameObjectWithTag("PlayerArmor");
         PlayerStepObject = GameObject.FindGameObjectWithTag("PlayerStep");
@@ -79,7 +75,7 @@ public class ItemLayOut : MonoBehaviour
         LevelMonsters = new List<Tile>();
         LevelMonsters.Add(PlayerTile);
         Difficulty = 0;
-        while ((Difficulty < PlayerLevel || LevelMonsters.Count < 4 + PlayerLevel/5) || Difficulty > (PlayerLevel) * 1.2 || (!AllTypes(LevelMonsters)) )
+        while ((Difficulty < PlayerLevel || LevelMonsters.Count < 4 + PlayerLevel/3) || Difficulty > (PlayerLevel) * 1.2 || (!AllTypes(LevelMonsters)) )
         {
             CurrentMonster = Monsters[Random.Range(0, Monsters.Length - 1)];
             if (CurrentMonster. RequiredLevel >= PlayerLevel){ continue; }
@@ -88,7 +84,7 @@ public class ItemLayOut : MonoBehaviour
             {
                 LevelMonsters.Add(CurrentMonster);
                 Difficulty += CalculateDifficulty(CurrentMonster);
-                if (LevelMonsters.Count > 6 + PlayerLevel/5)
+                if (LevelMonsters.Count > 6 + PlayerLevel/3)
                 {
                     Difficulty -= CalculateDifficulty(LevelMonsters[1]);
                     LevelMonsters.RemoveAt(1);
@@ -160,11 +156,6 @@ public class ItemLayOut : MonoBehaviour
     }
     public virtual void CheckDeath()
     {
-        if (PlayerStepCounter > PlayerPrefs.GetInt("HighScore"))
-        {
-            HighScore = PlayerStepCounter;
-            PlayerPrefs.SetInt("HighScore", HighScore);
-        }
         if (PlayerHp <= 0)
         {
             HpDropped0();
